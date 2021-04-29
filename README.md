@@ -209,7 +209,7 @@ colcon build \
 Build the Orocos-toolchain with ROS2 integration, you might want to run the following twice. You should only get an "stderr output" for the orocos_toolchain package:
 ```
 colcon build \
---parallel-workers <parallel-workers> \
+--parallel-workers 6 \
 --install-base ~/orocos/${ROS_DISTRO} \
 --merge-install \
 --cmake-args \
@@ -217,7 +217,7 @@ colcon build \
     \ -DCMAKE_BUILD_TYPE=Release \
     \ -DENABLE_CORBA=ON \
     \ -DCORBA_IMPLEMENTATION=OMNIORB \
-    \ -DOROCOS_INSTALL_INTO_PREFIX_ROOT=ON 
+    \ -DOROCOS_INSTALL_INTO_PREFIX_ROOT=ON -DBUILD_TESTING=ON
    
 ```
 ##### (Optional) Install Orocos-toolchain with tests
