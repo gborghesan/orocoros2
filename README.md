@@ -195,7 +195,7 @@ cd ~/orocos_ws
 
 colcon build \
 --packages-select orocos_toolchain \
---parallel-workers <parallel-workers> \
+--parallel-workers 6 \
 --install-base ~/orocos/${ROS_DISTRO} \
 --merge-install \
 --cmake-args \
