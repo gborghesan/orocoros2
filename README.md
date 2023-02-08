@@ -187,27 +187,23 @@ git clone https://github.com/orocos/rtt_ros2_integration.git
 git clone https://github.com/orocos/rtt_ros2_common_interfaces.git
 git clone --recurse-submodules --branch=ros2 https://github.com/orocos-toolchain/orocos_toolchain.git 
 ```
-#### Install
+
+
+#### Install Orocos-toolchain with tests
+If you also want to install the tests packages:
+```
+sudo apt install ros-foxy-test-msgs
+```
 
 Start building the orocos_toolchain package, you can ignore the "stderr output":
-```
-cd ~/orocos_ws
 
-colcon build \
---packages-select orocos_toolchain \
---parallel-workers 6 \
---install-base ~/orocos/${ROS_DISTRO} \
---merge-install \
---cmake-args \
-    \ -DBUILD_TESTING=OFF \
-    \ -DCMAKE_BUILD_TYPE=Release \
-    \ -DENABLE_CORBA=ON \
-    \ -DCORBA_IMPLEMENTATION=OMNIORB \
-    \ -DOROCOS_INSTALL_INTO_PREFIX_ROOT=ON
-```
 
 Build the Orocos-toolchain with ROS2 integration, you might want to run the following twice. You should only get an "stderr output" for the orocos_toolchain package:
+
 ```
+
+cd ~/orocos_ws
+
 colcon build \
 --parallel-workers 6 \
 --install-base ~/orocos/${ROS_DISTRO} \
@@ -220,13 +216,9 @@ colcon build \
     \ -DOROCOS_INSTALL_INTO_PREFIX_ROOT=ON -DBUILD_TESTING=ON
    
 ```
-##### (Optional) Install Orocos-toolchain with tests
-If you also want to install the tests packages:
-```
-sudo apt install ros-foxy-test-msgs
-```
-And run the previous *colcon build* command with ```-DBUILD_TESTING=ON``` option.
+
 #### Verfify installation
+
 ```
 source /opt/ros/foxy/setup.bash
 source ~/orocos/foxy/local_setup.bash
